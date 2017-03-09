@@ -16,4 +16,7 @@ Robótica industrial, acionamentos elétricos, etc.
 
 - Cite arquiteturas possíveis e as diferenças entre elas
 
-
+- Por que usamos o MSP430 na disciplina, ao invés de outro microcontrolador?
+O pocessador desde microcontrolador permite aritmética diretamente com valores da memória.
+CPU pequena e muito eficiente.
+Aplicações de baixo consumo de energia.
