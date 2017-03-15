@@ -28,3 +28,16 @@ Para este código, responda:
   
 	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?
   - Na memória ROM, pois o código é salvo. Para depois ser possível acessá-lo.
+
+Q4. Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
+
+- A principal diferença dessas duas arquiteturas é que a Harvard separa o armazenamento e o tráfego  das instruções da CPU  e dos dados em duas unidades distintas de memória. Enquanto a Von Neumann utiliza o mesmo espaço de memória para ambos.
+
+Q5. Considere a variável inteira 'i', armazenando o valor 0x8051ABCD. Se 'i' é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é:
+	(a) Little-endian?
+	-
+	(b) Big-endian?
+	
+Q6. Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits?
+-
+	
