@@ -1,0 +1,30 @@
+Q1. Quais as diferenças entre os barramentos de dados e de endereços?
+-Barramento de dados é uma parte de um barramento de um sistema de computação usada para a transferência de dados, já o barramento de endereços é usado para a transferência de endereços. 
+
+Q2. Quais são as diferenças entre as memórias RAM e ROM?
+-Memória RAM: Volátil,permite a gravação e a regravação dos dados, mas se o computador for desligado, os arquivos são perdidos.
+-Memória ROM: Não volátil, permite a gravação de dados somente uma vez e não é possível apagar ou editar nenhuma informação, apenas acessar a mesma.
+
+
+Q3. Considere o código abaixo, de 12 linhas:
+
+    1.   #include <stdio.h>
+    2.   int main(void)
+    3.   {
+    4.      int i;
+    5.      printf("Insira um número inteiro: ");
+    6.      scanf("%d", &i);
+    7.      if(i%2)
+    8.         printf("%d eh impar.\n");
+    9.      else
+   10.         printf("%d eh par.\n");
+   11.      return 0;
+   12.   }
+
+Para este código, responda:
+	(a) A variável 'i' é armazenada na memória RAM ou ROM? Por quê?
+  
+  - Na memória RAM, pois não é necessário que esse número fique salvo. Sendo que depois da resposta, não precisamos mais dele.
+  
+	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?
+  - Na memória ROM, pois o código é salvo. Para depois ser possível acessá-lo.
