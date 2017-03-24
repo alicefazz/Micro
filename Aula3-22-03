@@ -19,12 +19,19 @@
   
   2. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar os dois LEDs ininterruptamente.
   
+  #define tempo 0
+  
   int main(void)
   {
   WDTCTL= WDTPW + WTDHOLD;
-  P1DIR= 0X01;
+  P1DIR= 0X41;
+  P1OUT=0x41;
   for(;;)
   {
+  for(tempo=0;tempo<10000;tempo++);
+  P1OUT=1;
+  for(tempo=0;tempo<10000;tempo++);
+  P1OUT=0;
   }
   }
   
