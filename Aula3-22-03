@@ -30,6 +30,25 @@
   
   
   3. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar duas vezes os dois LEDs sempre que o usuário pressionar o botão.
+void main(void)
+{
+WDTCTL=WDTPW+WDTHOLD;
+P1DIR|= 0X41;     //P1.0  e P1.6 como saída e os demais como entradas
+P1OUT &= ~0x41;   //P1.0 e P1.6 como desligado
+P1REN |=0x08;     //Habilita Pull-up no botão P1.3
+
+while(1)      //loop infinito
+{
+if((P1IN & 0x08)==0)   // Se o botão está em zero
+P1OUT=0x41;            // acende os dois leds, P1.0 e P1.6
+else 
+P1OUT &= ~0x41;        // Apaga os dois leds
+}
+
+
+
+
+
 
 4. Considerando a placa Launchpad do MSP430, faça uma função em C que pisca os dois LEDs uma vez.
 
