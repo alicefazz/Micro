@@ -38,36 +38,65 @@
   
   3. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar duas vezes os dois LEDs sempre que o usuário pressionar o botão.
 
-WDTCTL=WDTPW+WDTHOLD;
-P1DIR|= 0X41;     //P1.0  e P1.6 como saída e os demais como entradas
-P1OUT &= ~0x41;   //P1.0 e P1.6 como desligado
-P1REN |=0x08;     //Habilita Pull-up no botão P1.3
+#define LED1 BIT0
+#define LED2 BIT6
+#define BTN BIT3
 
-while(1)      //loop infinito
 {
-if((P1IN & 0x08)==0)   // Se o botão está em zero
-P1OUT=0x41;            // acende os dois leds, P1.0 e P1.6
+WDTCTL=WDTPW+WDTHOLD;
+P1DIR |= BIT0+BIT6;     //P1.0  e P1.6 como saída e os demais como entradas
+P1OUT &= ~(BIT0+BIT6);   //P1.0 e P1.6 como desligado
+P1REN |= BIT3;     //Habilita Pull-up no botão P1.3
+
+if((P1IN & BIT3)==0)   // Se o botão está em zero
+	P1OUT=1;            // acende os dois leds, P1.0 e P1.6
+	
 else 
-P1OUT &= ~0x41;        // Apaga os dois leds
+	P1OUT &= ~(BIT0+BIT6);        // Apaga os dois leds
 }
-AAAAAA, NÃO SEEEEEEI COMO FAZER PISCAR DUAS VEZES :C
+NÃO SEI COMO FAZ PISCAR DUAS VEZES!!!!!!!! :(
 
 4. Considerando a placa Launchpad do MSP430, faça uma função em C que pisca os dois LEDs uma vez.
+
+#define LED1 BIT0
+#define LED2 BIT6
+#define BTN BIT3
+
 {
 WDTCTL=WDTPW+WDTHOLD;
-P1DIR|= 0X41;     //P1.0  e P1.6 como saída e os demais como entradas
-P1OUT &= ~0x41;   //P1.0 e P1.6 como desligado
-P1REN |=0x08;     //Habilita Pull-up no botão P1.3
+P1DIR |= BIT0+BIT6;     //P1.0  e P1.6 como saída e os demais como entradas
+P1OUT &= ~(BIT0+BIT6);   //P1.0 e P1.6 como desligado
+P1REN |= BIT3;     //Habilita Pull-up no botão P1.3
 
 while(1)      //loop infinito
 {
-if((P1IN & 0x08)==0)   // Se o botão está em zero
-P1OUT=0x41;            // acende os dois leds, P1.0 e P1.6
+if((P1IN & BIT3)==0)   // Se o botão está em zero
+P1OUT=BIT0+BIT6;            // acende os dois leds, P1.0 e P1.6
 else 
-P1OUT &= ~0x41;        // Apaga os dois leds
+P1OUT &= ~(BIT0+BIT6);        // Apaga os dois leds
 }
 
 
 5. Reescreva o código da questão 2 usando a função da questão 4.
+
+ #define tempo 0
+ #define LED1 BIT0
+ #define LED2 BIT6
+ #define BTN BIT3
+  
+  int main(void)
+  {
+  WDTCTL= WDTPW + WTDHOLD;
+  P1DIR= BIT0+BIT6;
+  P1OUT=BIT0+BIT6;
+  
+  while((P1IN & BIT3)==1)
+  {
+  for(tempo=0;tempo<10000;tempo++);
+  	P1OUT=1;
+  for(tempo=0;tempo<10000;tempo++);
+  	P1OUT=0;
+  }
+  }
 
 6. Reescreva o código da questão 3 usando a função da questão 4.
