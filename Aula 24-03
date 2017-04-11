@@ -41,10 +41,18 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores tempor�
 
 3. Traduza as seguintes linhas em C para a linguagem assembly do MSP430. Utilize somente as seguintes instruções: mov.w, add.w, sub.w, clr.w, dec.w, decd.w, inc.w e incd.w.
 	(a) f *= 2;
-  
+     mov.w 2,R11;
+     add.w R11,R4;
+     mov.w
   
 	(b) g *= 3;
+	
 	(c) h *= 4;
 	(d) A[2] = A[1] + A[0];
+	add.w 2(R9), 0(R9);
+	mov.w 0(R9),4(R9);
+	
+	
+	
 	(e) A[3] = 2*f - 4*h;
 	(f) A[3] = 2*(f - 2*h);
