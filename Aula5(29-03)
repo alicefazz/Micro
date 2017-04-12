@@ -10,24 +10,53 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores tempor�
 
 1. Escreva os trechos de c처digo assembly do MSP430 para:
 	(a) Somente setar o bit menos significativo de R5.
+	bis.w #1,R5;
+	
 	(b) Somente setar dois bits de R6: o menos significativo e o segundo menos significativo.
+	bis.w #3,R6;
+	
 	(c) Somente zerar o terceiro bit menos significativo de R7.
+	bic.w #4,R7;
+	
 	(d) Somente zerar o terceiro e o quarto bits menos significativo de R8.
+	bic.w #12, R8;
+	
 	(e) Somente inverter o bit mais significativo de R9.
+	
+	
 	(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10. 
+	//nibble = 4 bits
+	
+	
 
 2. "Traduza" o seguinte trecho de c처digo em C para o assembly do MSP430:
 
-	if(i>j) f = g+h+10;
-	else f = g-h-10;
+	if(i>j) 
+	f = g+h+10;
+	else 
+	f = g-h-10;
+	
+	cmp R7,R8;
+	jne ELSE
+	jl ELSE
+	add.w #10,R6; // R6= h+10
+	add.w R6,R5;   // g+h+10
+	mov.w R5,R6;   // f= g+h+10
+	ELSE:
+	sub.w #10,R6; // h-6
+	sub.w R6,R5; // g-h-6
+	mov.w R5,R4;  // f= g-h-10
+	
 
 3. "Traduza" o seguinte trecho de c처digo em C para o assembly do MSP430:
 
 	while(save[i]!=k) i++;
+	
 
 4. "Traduza" o seguinte trecho de c처digo em C para o assembly do MSP430:
 
 	for(i=0; i<100; i++) A[i] = i*2;
+	
 
 5. "Traduza" o seguinte trecho de c처digo em C para o assembly do MSP430:
 
