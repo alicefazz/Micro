@@ -81,8 +81,10 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores tempor√
 	clr.w R6;
 	
 	(f) A[3] = 2*(f - 2*h);
-	add.w R6,R6 ; 2*h
-	sub.w R6,R4 ; f = f - 2*h
-	mov R4,6(R9)
-	clr.w R4
-	clr.w R6
+	add.w R6,R6;
+	sub.w R6,R4;
+	add.w R4,R4;
+	mov.w R4, 6(R9);
+	clr.w R6;
+	clr.w R4;
+	
