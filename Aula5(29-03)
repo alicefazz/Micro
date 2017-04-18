@@ -91,3 +91,12 @@ FOR:
 
 cmp #0, R7 ; compare i with 0 
 jl EXIT ; if i < 0, go to exit 
+mov.w R7,R12 ; R7 = i, R12 = temporary register 
+rla R12 ; R12 = 2*i 
+mov.w R12,R13 
+add.w R9,R13 ; R13 = ADDRESS (A) + R12 
+mov.w R12,0(R13); A[i] = 2*i 
+dec.w R7 ; i-- 
+jmp FOR 
+
+EXIT:
